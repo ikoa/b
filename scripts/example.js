@@ -27,17 +27,5 @@ const fetch = require('node-fetch');
 fetch('/iron-lung', {method: 'GET'})
 	  .then(res => console.log(res)).catch(err => console.log(err));
 
-fetch('/iron-lung')
-    .then((res) => res.text()) // プレーンテキスト
-    .then((body) => {
-        // githubのHTMLソースが表示される。
-        // console.log(body)
-    });
-
 fetch('/')
-    .then((res) => res.text()) // プレーンテキスト
-    .then((body) => {
-        // githubのHTMLソースが表示される。
-        // console.log(body)
-    });
-
+    .then((res) => res.text("hello world"));
