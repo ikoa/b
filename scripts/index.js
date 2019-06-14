@@ -18,7 +18,7 @@ const app = express();
 
         // 定時退社
         robot.hear(/定時退社/i, (msg) => {
-            msg.send(service.teiji(msg.message.user.name));
+            msg.send(service.teiji(msg.message.user.display.name));
         });
 
         robot.respond(/test/, (msg) => {
