@@ -8,8 +8,10 @@
 // client.connect();
 
 module.exports = {
-    teiji: () => {
-        return isSuccess() ? ":sexygirl1: < 定時退社成功！" : ":sexygirl1: < 定時退社失敗…";
+    teiji: (name) => {
+        return isSuccess() ?
+            ":sexygirl1: < 成功！　　" + " `" + name + "の勝率:" + 0 +"勝" + 0 + "敗`":
+            ":sexygirl1: < 失敗・・・" + " `" + name + "の勝率:" + 0 +"勝" + 0 + "敗`";
     }
 };
 
