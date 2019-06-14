@@ -1,4 +1,5 @@
 const service = require('./service');
+const fetch = require('node-fetch');
 
 (function() {
     module.exports = function(robot) {
@@ -22,3 +23,6 @@ const service = require('./service');
     };
 }).call(this);
 
+
+fetch('/iron-lung', {method: 'GET'})
+	  .then(res => console.log(res)).catch(err => console.log(err));
