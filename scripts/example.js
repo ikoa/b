@@ -8,3 +8,19 @@
     };
 }).call(this);
 
+
+(function() {
+    module.exports = function(robot) {
+
+        // hello world
+        robot.hear(/helo/i, (res) => {
+            res.send("world");
+        });
+
+        // sushi
+        robot.hear(/sushi/i, (res) => {
+            res.send(":sushi: SUSHIRO↑ SUSHIRO↓");
+        });
+    };
+}).call(this);
+
