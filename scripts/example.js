@@ -15,7 +15,8 @@ const service = require('./service');
 
         // 定時退社
         robot.hear(/定時退社/i, (msg) => {
-            msg.send(service.teiji(msg.message.username));
+            const username = robot.brain.userForName(msg.message.user.name);
+            msg.send(service.teiji(username));
         });
 
     };
