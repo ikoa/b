@@ -16,5 +16,5 @@ module.exports = {
 };
 
 const isSuccess = () => {
-    return Math.floor(Math.random()*2) === 0;
+    return Math.floor(Math.random()*2) === 0; // 0 or 1
 };
