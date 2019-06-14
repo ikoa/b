@@ -18,8 +18,11 @@ const app = express();
 
         // 定時退社
         robot.hear(/定時退社/i, (msg) => {
-            const username = robot.brain.userForName(msg.message.user.name);
-            msg.send(service.teiji(username));
+            msg.send(service.teiji(msg.message.user.name));
+        });
+
+        robot.respond(/test/, (msg) => {
+            msg.send(msg.message.user.name);
         });
 
     };
