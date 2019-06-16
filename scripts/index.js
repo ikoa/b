@@ -1,7 +1,4 @@
 const service = require('./service');
-const fetch = require('node-fetch');
-const express = require('express');
-const app = express();
 
 (function() {
     module.exports = function(robot) {
