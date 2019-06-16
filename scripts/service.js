@@ -31,10 +31,10 @@ const isSuccess = () => {
 
 const dbTest = () => {
     const client = new pg.Client(databaseInfo);
-    client.connect();
-    const res = client.query('SELECT * from test;');
+    await client.connect();
+    const res = await client.query('SELECT * from member_detail where id == 1;');
     console.log(res.rows);
-    client.end();
+    await client.end();
 
     return res;
 };
