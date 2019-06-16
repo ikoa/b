@@ -19,7 +19,11 @@ const service = require('./service');
         });
 
         robot.respond(/test/, (msg) => {
-            msg.send(msg.message.user.name);
+            msg.send(msg.message.user.id);
+        });
+
+	robot.respond(/t2st/, (msg) => {
+            msg.send(service.test("hoge"));
         });
 
     };
