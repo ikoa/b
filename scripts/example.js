@@ -38,7 +38,7 @@ async function getName2(userId) {
     
     console.log(res.rows[0].name);
     const name = res.rows[0].name;
-    return name;
+    return Promise.resolve(name);
 }
 
 const teiji = (userId) => {
