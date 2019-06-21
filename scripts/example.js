@@ -34,6 +34,18 @@ const getName = async (userId) => {
     return name;
 };
 
+async function getName2(userId) {
+    const client = new pg.Client(databaseInfo);
+    client.connect();
+    console.log("userId ===> " + userId)
+    //const queryString = "select name from member_detail where user_id =='" + userId + "';";
+    const queryString = "SELECT name, user_id FROM member_detail WHERE user_id = 'UE1QC057Z';";
+    const res = await client.query(queryString);
+    console.log(res.rows[0].name);
+    const name = res.rows[0].name;
+    return name;
+}
+
 const teiji = (userId) => {
     const userName = await getName(userId);
     console.log("username:" + userName);
