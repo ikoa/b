@@ -22,7 +22,7 @@ const databaseInfo = {connectionString: process.env.DATABASE_URL, ssh: true};
     };
 }).call(this);
 
-function getName2(userId) {
+async function getName2(userId) {
     const client = new pg.Client(databaseInfo);
     client.connect();
     console.log("userId ===> " + userId)
