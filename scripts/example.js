@@ -13,7 +13,7 @@
 
         // 定時退社
         robot.hear(/定時退社/i, (msg) => {
-            msg.send(Service.teiji("hoge"));
+            msg.send(teiji("hoge"));
         });
 
     };
