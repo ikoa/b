@@ -1,4 +1,4 @@
-const service = require('./service');
+import { teiji } from './service';
 
 (function() {
     module.exports = function(robot) {
@@ -15,7 +15,7 @@ const service = require('./service');
 
         // 定時退社
         robot.hear(/定時退社/i, (msg) => {
-            msg.send(service.teiji(msg.message.username));
+            msg.send(teiji(msg.message.username));
         });
 
     };
