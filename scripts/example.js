@@ -26,7 +26,8 @@ const getName = async (userId) => {
     const client = new pg.Client(databaseInfo);
     client.connect();
     console.log("userId ===> " + userId)
-    const queryString = "select name from member_detail where user_id =='" + userId + "';";
+    //const queryString = "select name from member_detail where user_id =='" + userId + "';";
+    const queryString = "select * from member_detail;";
     const res = await client.query(queryString);
     console.log(res.rows);
     return res.rows(0);
