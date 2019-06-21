@@ -47,7 +47,7 @@ async function getName2(userId) {
 }
 
 const teiji = (userId) => {
-    const userName = await getName(userId);
+    const userName = await getName2(userId);
     console.log("username:" + userName);
     return isSuccess() ?
         ":sexygirl1: < 成功！　　" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`" :
