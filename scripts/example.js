@@ -22,7 +22,7 @@ const databaseInfo = {connectionString: process.env.DATABASE_URL, ssh: true};
     };
 }).call(this);
 
-const getName = (userId) => {
+const getName = async (userId) => {
     const client = new pg.Client(databaseInfo);
     client.connect();
     const queryString = "select name from member_detail where user_id ==" + userId;
