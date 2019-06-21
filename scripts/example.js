@@ -28,7 +28,14 @@ async function getName2(userId) {
     console.log("userId ===> " + userId)
     //const queryString = "select name from member_detail where user_id =='" + userId + "';";
     const queryString = "SELECT name, user_id FROM member_detail WHERE user_id = 'UE1QC057Z';";
-    const res = await client.query(queryString);
+    const res = await client.query(queryString).catch(err => {
+        console.log(err.message)
+        return Promise.reject(new Error('throw from await/catch'))
+      })
+      .catch(err => {
+        console.log(err.message)
+      })
+    
     console.log(res.rows[0].name);
     const name = res.rows[0].name;
     return name;
