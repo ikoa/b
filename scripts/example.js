@@ -1,3 +1,6 @@
+const pg = require('pg');
+const databaseInfo = {connectionString: process.env.DATABASE_URL, ssh: true};
+
 (function() {
     module.exports = function(robot) {
 
@@ -13,7 +16,7 @@
 
         // 定時退社
         robot.hear(/定時退社/i, (msg) => {
-            msg.send(teiji("hoge"));
+            msg.send(teiji(msg.message.user.id));
         });
 
     };
