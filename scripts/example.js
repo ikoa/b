@@ -29,7 +29,7 @@ const getName = async (userId) => {
     //const queryString = "select name from member_detail where user_id =='" + userId + "';";
     const queryString = "select * from member_detail;";
     const res = await client.query(queryString);
-    console.log(res.rows);
+    console.log(res.rows(1).name);
     return res.rows(0);
 };
 
