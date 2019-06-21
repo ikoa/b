@@ -30,11 +30,13 @@ const getName = async (userId) => {
     const queryString = "select * from member_detail;";
     const res = await client.query(queryString);
     console.log(res.rows[0].name);
-    return res.rows[0].name;
+    const name = res.rows[0].name;
+    return name;
 };
 
 const teiji = (userId) => {
     const userName = getName(userId);
+    console.log(userName);
     return isSuccess() ?
         ":sexygirl1: < 成功！　　" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`" :
         ":sexygirl1: < 失敗・・・" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`";
