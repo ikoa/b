@@ -1,7 +1,9 @@
-import { teiji } from './service';
+import { Service } from './service';
 
 (function() {
     module.exports = function(robot) {
+
+        const service = new Service();
 
         // hello world
         robot.hear(/helo/i, (msg) => {
@@ -15,7 +17,7 @@ import { teiji } from './service';
 
         // 定時退社
         robot.hear(/定時退社/i, (msg) => {
-            msg.send(teiji(msg.message.username));
+            msg.send(service.teiji("hoge"));
         });
 
     };
