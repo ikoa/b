@@ -25,6 +25,7 @@ const databaseInfo = {connectionString: process.env.DATABASE_URL, ssh: true};
 const getName = async (userId) => {
     const client = new pg.Client(databaseInfo);
     client.connect();
+    console.log("userId ===> " + userId)
     const queryString = "select name from member_detail where id =='" + userId + "';";
     const res = await client.query(queryString);
     console.log(res.rows);
