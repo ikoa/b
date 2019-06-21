@@ -22,11 +22,20 @@ const databaseInfo = {connectionString: process.env.DATABASE_URL, ssh: true};
     };
 }).call(this);
 
+const getName = (userId) => {
+    const client = new pg.Client(databaseInfo);
+    client.connect();
+    const queryString = "select name from member_detail where user_id ==" + userId;
+    const res = await client.query(queryString);
+    console.log(res.rows);
+    return res.rows(0);
+};
 
-const teiji = (name) => {
+const teiji = (userId) => {
+    const userName = getName(userId);
     return isSuccess() ?
-        ":sexygirl1: < 成功！　　" + " `" + name + "の勝率:" + 0 + "勝" + 0 + "敗`" :
-        ":sexygirl1: < 失敗・・・" + " `" + name + "の勝率:" + 0 + "勝" + 0 + "敗`";
+        ":sexygirl1: < 成功！　　" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`" :
+        ":sexygirl1: < 失敗・・・" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`";
 };
 
 const isSuccess = () => {
