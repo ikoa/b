@@ -1,7 +1,4 @@
-
-
-
-export default class Service {
+class Service {
     teiji(name) {
          return isSuccess() ?
         ":sexygirl1: < 成功！　　" + " `" + name + "の勝率:" + 0 + "勝" + 0 + "敗`" :
