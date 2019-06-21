@@ -22,19 +22,7 @@ const databaseInfo = {connectionString: process.env.DATABASE_URL, ssh: true};
     };
 }).call(this);
 
-const getName = async (userId) => {
-    const client = new pg.Client(databaseInfo);
-    client.connect();
-    console.log("userId ===> " + userId)
-    //const queryString = "select name from member_detail where user_id =='" + userId + "';";
-    const queryString = "select * from member_detail;";
-    const res = await client.query(queryString);
-    console.log(res.rows[0].name);
-    const name = res.rows[0].name;
-    return name;
-};
-
-async function getName2(userId) {
+function getName2(userId) {
     const client = new pg.Client(databaseInfo);
     client.connect();
     console.log("userId ===> " + userId)
@@ -47,7 +35,7 @@ async function getName2(userId) {
 }
 
 const teiji = (userId) => {
-    const userName = await getName2(userId);
+    const userName = getName2(userId);
     console.log("username:" + userName);
     return isSuccess() ?
         ":sexygirl1: < 成功！　　" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`" :
