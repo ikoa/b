@@ -41,23 +41,23 @@ async function getName(userId) {
     
     console.log(res.rows[0].name);
     const name = res.rows[0].name;
-    return name;
+    return res.rows[0];
 }
 
 
 
 const teiji = async (msg, userId) => {
-    const userName = await getName(msg.message.user.id);
-    console.log("username:" + userName);
-    const isSuccess = isSuccess();
+    const user = await getName(msg.message.user.id);
+    console.log("username:" + user.name);
+    const isSuccess = await isSuccess();
     const result = isSuccess ?
-	  ":sexygirl1: < 成功！　　" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`":
-	  ":sexygirl1: < 失敗・・・" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`";
+	  ":sexygirl1: < 成功！　　" + " `" + user.name + "の勝率:" + 0 + "勝" + 0 + "敗`":
+	  ":sexygirl1: < 失敗・・・" + " `" + user.name + "の勝率:" + 0 + "勝" + 0 + "敗`";
     
     return isSuccess ? msg.send(result1) : msg.send(result2);
 };
 
-const isSuccess = () => {
+const isSuccess = async () => {
     console.log("called isSuccess()");
     const result = Math.floor(Math.random() * 3) === 0; // 0 or 1, 2
     console.log("isSuccess => " + result);
