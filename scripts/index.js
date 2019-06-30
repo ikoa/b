@@ -2,7 +2,7 @@ const pg = require('pg');
 const databaseInfo = {connectionString: process.env.DATABASE_URL, ssh: true};
 
 (function() {
-    module.exports = function(robot) {
+    module.exports = async function(robot) {
 
         // hello world
         robot.hear(/helo/i, (msg) => {
@@ -16,9 +16,9 @@ const databaseInfo = {connectionString: process.env.DATABASE_URL, ssh: true};
 
         // 定時退社
         robot.hear(/定時退社/i, (msg) => {
-	    const message = teiji(msg.message.user.id);
-	    console.log("teiji => " + message);
-            msg.send(message);
+	    const message = teiji(msg, msg.message.user.id);
+	    //console.log("teiji => " + message);
+//            msg.send(message);
         });
 
     };
@@ -43,12 +43,12 @@ async function getName2(userId) {
     return name;
 }
 
-const teiji = async (userId) => {
-    const userName = await getName2(userId);
+const teiji = async (msg, userId) => {
+    const userName = await getName2(msg.message.user.id);
     console.log("username:" + userName);
     const result1 = ":sexygirl1: < 成功！　　" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`";
     const result2 = ":sexygirl1: < 失敗・・・" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`";
-    return isSuccess() ? result1 : result2;
+    return isSuccess() ? msg.send(result1) : msg.send(result2);
 };
 
 const isSuccess = () => {
