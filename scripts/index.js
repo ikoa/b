@@ -49,7 +49,7 @@ async function getName(userId) {
 const teiji = async (msg, userId) => {
     const user = await getName(msg.message.user.id);
     console.log("username:" + user.name);
-    const isSuccess = await isSuccess();
+    const isSuccess = true; //await isSuccess();
     const result = isSuccess ?
 	  ":sexygirl1: < 成功！　　" + " `" + user.name + "の勝率:" + 0 + "勝" + 0 + "敗`":
 	  ":sexygirl1: < 失敗・・・" + " `" + user.name + "の勝率:" + 0 + "勝" + 0 + "敗`";
