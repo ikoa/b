@@ -67,7 +67,7 @@ const convertEmoji = (tsumo) => {
 const convertMz = (hai) => {
     const num = hai - 10;
     console.log("hai" + hai + " num" + num);
-    const mz = ":mz"+ num + ": ";
+    const mz = ":mz"+ num.toString() + ": ";
     console.log(mz);
     return mz;
 };
@@ -75,25 +75,29 @@ const convertMz = (hai) => {
 const convertSz = (hai) => {
     const num = hai - 20;
     console.log("hai" + hai + " num" + num);
-    return ":sz"+ num.toString() + ": ";
+    const sz =  ":sz"+ num.toString() + ": ";
+    return sz;
 };
 
 const convertPz = (hai) => {
     const num = hai - 30;
     console.log("hai" + hai + " num" + num);
-    return ":pz"+ num.toString() + ": ";
+    const pz = ":pz"+ num.toString() + ": ";
+    return pz;
 };
 
 const convertSg = (hai) => {
     const num = hai - 40;
     console.log("hai" + hai + " num" + num);
-    return ":sg"+ num.toString() + ": ";
+    const sg =  ":sg"+ num.toString() + ": ";
+    return sg;
 };
 
 const convertKz = (hai) => {
     const num = hai - 50;
     console.log("hai" + hai + " num" + num);
-    return ":kz"+ num.toString() + ": ";
+    const kz = ":kz"+ num.toString() + ": ";
+    return kz;
 };
 
 const sortTsumo = (tsumo) => {
