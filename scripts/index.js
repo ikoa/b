@@ -25,8 +25,8 @@ const mj = require('./mj');
         });
 
 	// 天和
-	robot.hear(/天和/i, (msg) => {
-	    msg.send(mj.tenho());
+	robot.hear(/tenho/i, (msg) => {
+	    msg.send(":sexygirl1: < ツモ！ 16,000点オールです\n" + mj.tenho());
 	});
 
 	// なにきる
