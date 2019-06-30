@@ -21,6 +21,19 @@ const databaseInfo = {connectionString: process.env.DATABASE_URL, ssh: true};
 //            msg.send(message);
         });
 
+	// なにきる
+	robot.hear(/なにきる/i, (msg) => {
+	   const rp = require('request-promise');
+	   const formData = { hoge : 'payload'};
+	   rp({
+	       url : 'https://script.google.com/macros/s/AKfycbyA2nd5z-2acG-1jj_Uri1MRjMbFRXVBZv_bMOQiyNFL5nr42Lt/exec',
+	       method : 'GET',
+	       form : formData,
+	       followAllRedirects : true
+	     });
+        });
+	
+
     };
 }).call(this);
 
