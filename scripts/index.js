@@ -25,7 +25,7 @@ const mj = require('./mj');
         });
 
 	// 天和
-	robot.hear(/tenho/i, (msg) => {
+	robot.hear(/天和/i, (msg) => {
 	    msg.send(mj.tenho());
 	});
 

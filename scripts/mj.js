@@ -10,13 +10,9 @@ module.exports = {
 	const sortedTsumo = sortTsumo(tsumo);
 	const convertedEmoji = convertEmoji(sortedTsumo);
 	console.log("result = " + convertedEmoji);
-	let result;
-	convertedEmoji.forEach(c =>{
-	    result += c;
-	});
 
-	console.log(result);
-	return result;
+	console.log(convertedEmoji);
+	return convertedEmoji;
     }
 };
 
@@ -43,25 +39,23 @@ const createTehai = () => {
 };
 
 const convertEmoji = (tsumo) => {
-    let convertedEmoji = new Array();
+    let result = "";
     for(let i = 0; i < 14; i++) {
 	console.log("tsumo" + i +" =>" + tsumo[i]);
 	if(tsumo[i] < 20) { // マンズ
-	    convertEmoji[i] = convertMz(tsumo[i]);
+	    result += convertMz(tsumo[i]);
 	} else if(tsumo[i] < 30) { // ソウズ
-	    convertEmoji[i] = convertSz(tsumo[i]);
+	    result += convertSz(tsumo[i]);
 	} else if(tsumo[i] < 40) { // ピンズ
-	    convertEmoji[i] = convertPz(tsumo[i]);
+	    result += convertPz(tsumo[i]);
 	} else if(tsumo[i] < 50) { // 三元牌
-	    convertEmoji[i] = convertSg(tsumo[i]);
+	    result += convertSg(tsumo[i]);
 	} else if(tsumo[i] < 60) { // 風牌
-	    convertEmoji[i] = convertKz(tsumo[i]);
+	    result += convertKz(tsumo[i]);
 	}
-
-	console.log("ce" + i +" =>" + convertedEmoji[i]);
     }
 
-    return convertedEmoji;
+    return result;
 };
 
 const convertMz = (hai) => {
