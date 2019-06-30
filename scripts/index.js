@@ -24,12 +24,13 @@ const databaseInfo = {connectionString: process.env.DATABASE_URL, ssh: true};
     };
 }).call(this);
 
-async function getName2(userId) {
+async function getName(userId) {
     const client = new pg.Client(databaseInfo);
     client.connect();
     console.log("userId ===> " + userId);
     //const queryString = "select name from member_detail where user_id =='" + userId + "';";
-    const queryString = "SELECT name, success_count, failure_count, user_id FROM member_detail WHERE user_id = 'UE1QC057Z';";
+    const queryString =
+	  "SELECT name, success_count, failure_count, user_id FROM member_detail WHERE user_id = '" + userId + "';";
     const res = await client.query(queryString).catch(err => {
         console.log(err.message);
         return Promise.reject(new Error('throw from await/catch'));
@@ -43,12 +44,17 @@ async function getName2(userId) {
     return name;
 }
 
+
+
 const teiji = async (msg, userId) => {
-    const userName = await getName2(msg.message.user.id);
+    const userName = await getName(msg.message.user.id);
     console.log("username:" + userName);
-    const result1 = ":sexygirl1: < 成功！　　" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`";
-    const result2 = ":sexygirl1: < 失敗・・・" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`";
-    return isSuccess() ? msg.send(result1) : msg.send(result2);
+    const isSuccess = isSuccess();
+    const result = isSuccess ?
+	  ":sexygirl1: < 成功！　　" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`":
+	  ":sexygirl1: < 失敗・・・" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`";
+    
+    return isSuccess ? msg.send(result1) : msg.send(result2);
 };
 
 const isSuccess = () => {
@@ -57,3 +63,20 @@ const isSuccess = () => {
     console.log("isSuccess => " + result);
     return result;
 };
+
+async function saveRate(userId, isSuccess) {
+    const client = new pg.Client(databaseInfo);
+    client.connect();
+    console.log("called saveRate");
+    const queryString =  isSuccess ?
+	  "UPDATE member_detail SET success_count = success_count + 1 WHERE user_id = '" + userId + "';" :
+	  "UPDATE member_detail SET failure_count = failure_count + 1 WHERE user_id = '" + userId + "';" ;
+	  
+    const res = await client.query(queryString).catch(err => {
+        console.log(err.message);
+        return Promise.reject(new Error('throw from await/catch'));
+      })
+      .catch(err => {
+          console.log("ERROR!!:" + err.message);
+      });
+}
