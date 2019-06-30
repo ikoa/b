@@ -16,7 +16,9 @@ const databaseInfo = {connectionString: process.env.DATABASE_URL, ssh: true};
 
         // 定時退社
         robot.hear(/定時退社/i, (msg) => {
-            msg.send(teiji(msg.message.user.id));
+	    const message = teiji(msg.message.user.id);
+	    console.log("teiji => " + message);
+            msg.send(message);
         });
 
     };
@@ -33,7 +35,7 @@ async function getName2(userId) {
         return Promise.reject(new Error('throw from await/catch'));
       })
       .catch(err => {
-          console.log(err.message);
+          console.log("ERROR!!:" + err.message);
       });
     
     console.log(res.rows[0].name);
@@ -50,5 +52,8 @@ const teiji = async (userId) => {
 };
 
 const isSuccess = () => {
-    return Math.floor(Math.random() * 3) === 0; // 0 or 1, 2
+    console.log("called isSuccess()");
+    const result = Math.floor(Math.random() * 3) === 0; // 0 or 1, 2
+    console.log("isSuccess => " + result);
+    return result;
 };
