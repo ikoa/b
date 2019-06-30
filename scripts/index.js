@@ -1,5 +1,6 @@
 const pg = require('pg');
 const databaseInfo = {connectionString: process.env.DATABASE_URL, ssh: true};
+const gasUrl = {connectionString: process.env.GAS_URL, ssh: true};
 
 (function() {
     module.exports = async function(robot) {
@@ -29,7 +30,7 @@ const databaseInfo = {connectionString: process.env.DATABASE_URL, ssh: true};
 	   const rp = require('request-promise');
 	   const formData = { hoge : 'payload'};
 	   rp({
-	       url : GAS_URL,
+	       url : gasUrl,
 	       method : 'POST',
 	       form : formData,
 	       followAllRedirects : true
