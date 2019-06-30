@@ -49,10 +49,12 @@ async function getName(userId) {
 const teiji = async (msg, userId) => {
     const user = await getName(msg.message.user.id);
     console.log("username:" + user.name);
-    const isSuccess = true; //await isSuccess();
+    const isSuccess = Math.floor(Math.random() * 3) === 0; //await isSuccess();
     const result = isSuccess ?
-	  ":sexygirl1: < 成功！　　" + " `" + user.name + "の勝率:" + 0 + "勝" + 0 + "敗`":
-	  ":sexygirl1: < 失敗・・・" + " `" + user.name + "の勝率:" + 0 + "勝" + 0 + "敗`";
+	  ":sexygirl1: < 成功！　　"
+	  + " `" + user.name + "の勝率:" + user.succes_count + "勝" + user.failuer_count + "敗`":
+	  ":sexygirl1: < 失敗・・・" +
+	  " `" + user.name + "の勝率:" + user.succes_count + "勝" + user.failuer_count + "敗`";
     
     msg.send(result);
 };
