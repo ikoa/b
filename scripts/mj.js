@@ -45,6 +45,7 @@ const createTehai = () => {
 const convertEmoji = (tsumo) => {
     let convertedEmoji = new Array();
     for(let i = 0; i < 14; i++) {
+
 	if(tsumo[i] < 20) { // マンズ
 	    convertEmoji[i] = convertMz(tsumo[i]);
 	} else if(tsumo[i] < 30) { // ソウズ
@@ -56,6 +57,8 @@ const convertEmoji = (tsumo) => {
 	} else if(tsumo[i] < 60) { // 風牌
 	    convertEmoji[i] = convertKz(tsumo[i]);
 	}
+
+	console.log(i + " " + convertedEmoji[i]);
     }
 
     return convertedEmoji;
