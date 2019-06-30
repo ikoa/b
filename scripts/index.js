@@ -22,8 +22,6 @@ const mj = require('./mj');
         // 定時退社
         robot.hear(/定時退社/i, (msg) => {
 	    const message = teiji(msg, msg.message.user.id);
-	    //console.log("teiji => " + message);
-//            msg.send(message);
         });
 
 	// 天和
@@ -42,8 +40,6 @@ const mj = require('./mj');
 	       followAllRedirects : true
 	     });
         });
-	
-
     };
 }).call(this);
 
@@ -51,7 +47,6 @@ async function getName(userId) {
     const client = new pg.Client(databaseInfo);
     client.connect();
     console.log("userId ===> " + userId);
-    //const queryString = "select name from member_detail where user_id =='" + userId + "';";
     const queryString =
 	  "SELECT name, success_count, failure_count, user_id FROM member_detail WHERE user_id = '" + userId + "';";
     const res = await client.query(queryString).catch(err => {
