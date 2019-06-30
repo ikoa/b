@@ -66,26 +66,31 @@ const convertEmoji = (tsumo) => {
 
 const convertMz = (hai) => {
     const num = hai - 10;
+    console.log("hai" + hai + " num" + num);
     return ":mz"+ num.toString() + ": ";
 };
 
 const convertSz = (hai) => {
     const num = hai - 20;
+    console.log("hai" + hai + " num" + num);
     return ":sz"+ num.toString() + ": ";
 };
 
 const convertPz = (hai) => {
     const num = hai - 30;
+    console.log("hai" + hai + " num" + num);
     return ":pz"+ num.toString() + ": ";
 };
 
 const convertSg = (hai) => {
     const num = hai - 40;
+    console.log("hai" + hai + " num" + num);
     return ":sg"+ num.toString() + ": ";
 };
 
 const convertKz = (hai) => {
     const num = hai - 50;
+    console.log("hai" + hai + " num" + num);
     return ":kz"+ num.toString() + ": ";
 };
 
