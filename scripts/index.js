@@ -1,6 +1,7 @@
 const pg = require('pg');
 const databaseInfo = {connectionString: process.env.DATABASE_URL, ssh: true};
 const gasUrl = {connectionString: process.env.GAS_URL, ssh: true};
+const mj = require('./mj');
 
 (function() {
     module.exports = async function(robot) {
@@ -24,6 +25,11 @@ const gasUrl = {connectionString: process.env.GAS_URL, ssh: true};
 	    //console.log("teiji => " + message);
 //            msg.send(message);
         });
+
+	// 天和
+	robot.here(/tenho/i, (msg) => {
+	    mj.tenho();
+	});
 
 	// なにきる
 	robot.hear(/なにきる/i, (msg) => {
