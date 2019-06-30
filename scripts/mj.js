@@ -9,7 +9,7 @@ module.exports = {
         const tsumo = createTehai();
 	const sortedTsumo = sortTsumo(tsumo);
 	const convertedEmoji = convertEmoji(sortedTsumo);
-	console.log("result = " + convertEmoji);
+	console.log("result = " + convertedEmoji);
     }
 };
 
