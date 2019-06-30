@@ -27,7 +27,7 @@ const databaseInfo = {connectionString: process.env.DATABASE_URL, ssh: true};
 	   const formData = { hoge : 'payload'};
 	   rp({
 	       url : 'https://script.google.com/macros/s/AKfycbyA2nd5z-2acG-1jj_Uri1MRjMbFRXVBZv_bMOQiyNFL5nr42Lt/exec',
-	       method : 'GET',
+	       method : 'POST',
 	       form : formData,
 	       followAllRedirects : true
 	     });
