@@ -67,7 +67,9 @@ const convertEmoji = (tsumo) => {
 const convertMz = (hai) => {
     const num = hai - 10;
     console.log("hai" + hai + " num" + num);
-    return ":mz"+ num.toString() + ": ";
+    const mz = ":mz"+ num + ": ";
+    console.log(mz);
+    return mz;
 };
 
 const convertSz = (hai) => {
