@@ -8,7 +8,8 @@ module.exports = {
     tenho: () => {
         const tsumo = createTehai();
 	const sortedTsumo = sortTsumo(tsumo);
-	console.log("result = " + sortedTsumo);
+	const convertedEmoji = convertEmoji(sortedTsumo);
+	console.log("result = " + convertEmoji);
     }
 };
 
@@ -32,6 +33,50 @@ const createTehai = () => {
 
     console.log("created" + tsumo);
     return tsumo;
+};
+
+const convertEmoji = (tsumo) => {
+    let convertedEmoji = new Array();
+    for(let i = 0; i < 14; i++) {
+	if(tsumo[i] < 20) { // マンズ
+	    convertEmoji[i] = convertMz(tsumo[i]);
+	} else if(tsumo[i] < 30) { // ソウズ
+	    convertEmoji[i] = convertSz(tsumo[i]);
+	} else if(tsumo[i] < 40) { // ピンズ
+	    convertEmoji[i] = convertPz(tsumo[i]);
+	} else if(tsumo[i] < 50) { // 三元牌
+	    convertEmoji[i] = convertSg(tsumo[i]);
+	} else if(tsumo[i] < 60) { // 風牌
+	    convertEmoji[i] = convertKz(tsumo[i]);
+	}
+    }
+
+    return convertedEmoji;
+};
+
+const convertMz = (hai) => {
+    const num = hai - 10;
+    return ":mz"+ num + ": ";
+};
+
+const convertSz = (hai) => {
+    const num = hai - 20;
+    return ":sz"+ num + ": ";
+};
+
+const convertPz = (hai) => {
+    const num = hai - 30;
+    return ":pz"+ num + ": ";
+};
+
+const convertSg = (hai) => {
+    const num = hai - 40;
+    return ":sg"+ num + ": ";
+};
+
+const convertKz = (hai) => {
+    const num = hai - 50;
+    return ":kz"+ num + ": ";
 };
 
 const sortTsumo = (tsumo) => {
