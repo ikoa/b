@@ -59,13 +59,6 @@ const teiji = async (msg, userId) => {
     msg.send(result);
 };
 
-const isSuccess = async () => {
-    console.log("called isSuccess()");
-    const result = Math.floor(Math.random() * 3) === 0; // 0 or 1, 2
-    console.log("isSuccess => " + result);
-    return result;
-};
-
 async function saveRate(userId, isSuccess) {
     const client = new pg.Client(databaseInfo);
     client.connect();
