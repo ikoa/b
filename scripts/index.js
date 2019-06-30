@@ -54,7 +54,7 @@ const teiji = async (msg, userId) => {
 	  ":sexygirl1: < 成功！　　" + " `" + user.name + "の勝率:" + 0 + "勝" + 0 + "敗`":
 	  ":sexygirl1: < 失敗・・・" + " `" + user.name + "の勝率:" + 0 + "勝" + 0 + "敗`";
     
-    return isSuccess ? msg.send(result1) : msg.send(result2);
+    msg.send(result);
 };
 
 const isSuccess = async () => {
