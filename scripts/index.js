@@ -26,7 +26,7 @@ const mj = require('./mj');
 
 	// 天和
 	robot.hear(/tenho/i, (msg) => {
-	    mj.tenho();
+	    msg.send(mj.tenho());
 	});
 
 	// なにきる

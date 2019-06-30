@@ -10,6 +10,13 @@ module.exports = {
 	const sortedTsumo = sortTsumo(tsumo);
 	const convertedEmoji = convertEmoji(sortedTsumo);
 	console.log("result = " + convertedEmoji);
+	let result;
+	convertedEmoji.forEach(c =>{
+	    result += c;
+	});
+
+	console.log(result);
+	return result;
     }
 };
 
