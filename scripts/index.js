@@ -52,9 +52,9 @@ const teiji = async (msg, userId) => {
     const isSuccess = Math.floor(Math.random() * 3) === 0; //await isSuccess();
     const result = isSuccess ?
 	  ":sexygirl1: < 成功！　　"
-	  + " `" + user.name + "の勝率:" + user.succes_count + "勝" + user.failuer_count + "敗`":
+	  + " `" + user.name + "の勝率:" + user.success_count + "勝" + user.failure_count + "敗`":
 	  ":sexygirl1: < 失敗・・・" +
-	  " `" + user.name + "の勝率:" + user.succes_count + "勝" + user.failuer_count + "敗`";
+	  " `" + user.name + "の勝率:" + user.success_count + "勝" + user.failure_count + "敗`";
     
     msg.send(result);
 };
