@@ -29,7 +29,7 @@ async function getName2(userId) {
     //const queryString = "select name from member_detail where user_id =='" + userId + "';";
     const queryString = "SELECT name, success_count, failure_count, user_id FROM member_detail WHERE user_id = 'UE1QC057Z';";
     const res = await client.query(queryString).catch(err => {
-        console.log(err.message)
+        console.log(err.message);
         return Promise.reject(new Error('throw from await/catch'));
       })
       .catch(err => {
@@ -44,9 +44,9 @@ async function getName2(userId) {
 const teiji = async (userId) => {
     const userName = await getName2(userId);
     console.log("username:" + userName);
-    return isSuccess() ?
-        ":sexygirl1: < 成功！　　" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`" :
-        ":sexygirl1: < 失敗・・・" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`";
+    const result1 = ":sexygirl1: < 成功！　　" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`";
+    const result2 = ":sexygirl1: < 失敗・・・" + " `" + userName + "の勝率:" + 0 + "勝" + 0 + "敗`";
+    return isSuccess() ? result1 : result2;
 };
 
 const isSuccess = () => {
