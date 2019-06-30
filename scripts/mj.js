@@ -22,11 +22,13 @@ const createTehai = () => {
 	const kind = dicideKind();
 	let hai;
 	
-	if (kind <= 40) { // 数牌
+	if (kind <= 4) { // 数牌
 	    hai = kind*10 + dicideNumByShuHai();
-	} else if (kind <= 50) { // 三元牌
+	} else if (kind <= 5) { // 三元牌
 	    hai = kind*10 + dicideNumBySangenHai();
+	    console.log(hai);
 	} else { //風牌
+	    console.log(hai);
 	    hai = kind*10 + dicideNumByKazeHai();
 	}
 

@@ -29,6 +29,10 @@ const mj = require('./mj');
 	    msg.send(":sexygirl1: < ツモ！ 16,000点オールです\n" + mj.tenho());
 	});
 
+	robot.hear(/tenho/i, (msg) => {
+	    msg.send(":sexygirl1: < ツモ！ 16,000点オールです\n" + mj.tenho());
+	});
+
 	// なにきる
 	robot.hear(/なにきる/i, (msg) => {
 	   const rp = require('request-promise');
