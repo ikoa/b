@@ -56,7 +56,7 @@ const teiji = async (msg, userId) => {
 	  ":sexygirl1: < 失敗・・・" +
 	  " `" + user.name + "の勝率:" + user.success_count + "勝" + (user.failure_count+1) + "敗`";
 
-    await saveRate(msg.user.is, isSuccess);
+    await saveRate(msg.user.id, isSuccess);
     
     msg.send(result);
 };
