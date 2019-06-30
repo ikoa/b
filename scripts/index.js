@@ -4,6 +4,9 @@ const databaseInfo = {connectionString: process.env.DATABASE_URL, ssh: true};
 (function() {
     module.exports = async function(robot) {
 
+	//help
+	// TODO helpみれるようにする
+
         // hello world
         robot.hear(/helo/i, (msg) => {
             msg.send("world");
